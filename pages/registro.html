@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registra una persona desaparecida en EncontrAR">
+    <title>Registrar Desaparecido | EncontrAR</title>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="../" aria-label="EncontrAR - Ir a inicio">
+                    <span class="logo-icon">🔍</span>
+                    <span class="logo-text">EncontrAR</span>
+                </a>
+            </div>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="../">Inicio</a></li>
+                <li><a href="buscar.html">Buscar</a></li>
+                <li><a href="registro.html" class="active">Registrar</a></li>
+                <li><a href="../pages/login.html" id="loginLink">Ingresar</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Registrar Desaparecido</h1>
+                <p class="hero-subtitle">Comparte la información de una persona desaparecida</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="registration-form">
+                <form id="registerForm">
+                    <h2>Datos Personales</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" data-required="true">Nombre *</label>
+                            <input type="text" id="firstName" name="firstName" required data-required="true" placeholder="Ej: Juan">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" data-required="true">Apellido *</label>
+                            <input type="text" id="lastName" name="lastName" required data-required="true" placeholder="Ej: García">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Edad</label>
+                            <input type="number" id="age" name="age" min="0" max="120" placeholder="Ej: 25">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Sexo</label>
+                            <select id="gender" name="gender">
+                                <option value="">Seleccionar</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo" data-required="true">Fotografía *</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" required data-required="true">
+                        <small>Formato: JPG, PNG, WebP. Máximo 5MB</small>
+                    </div>
+
+                    <h2>Ubicación</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city" data-required="true">Ciudad *</label>
+                            <input type="text" id="city" name="city" required data-required="true" placeholder="Ej: Buenos Aires">
+                        </div>
+                        <div class="form-group">
+                            <label for="country" data-required="true">País *</label>
+                            <select id="country" name="country" required data-required="true">
+                                <option value="">Seleccionar país</option>
+                                <option value="AR">Argentina</option>
+                                <option value="BR">Brasil</option>
+                                <option value="CL">Chile</option>
+                                <option value="CO">Colombia</option>
+                                <option value="MX">México</option>
+                                <option value="PE">Perú</option>
+                                <option value="ES">España</option>
+                                <option value="US">Estados Unidos</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastLocation" data-required="true">Última ubicación conocida *</label>
+                        <input type="text" id="lastLocation" name="lastLocation" required data-required="true" placeholder="Ej: Calle Principal 123">
+                    </div>
+
+                    <h2>Desaparición</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="missingDate" data-required="true">Fecha de desaparición *</label>
+                            <input type="date" id="missingDate" name="missingDate" required data-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="missingTime">Hora aproximada</label>
+                            <input type="time" id="missingTime" name="missingTime">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción física</label>
+                        <textarea id="description" name="description" placeholder="Descripción de características físicas..." maxlength="500"></textarea>
+                        <small id="descriptionCount">0/500</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clothing">Vestimenta</label>
+                        <textarea id="clothing" name="clothing" placeholder="Ropa que llevaba cuando desapareció..." maxlength="300"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="distinguishingMarks">Señas particulares</label>
+                        <input type="text" id="distinguishingMarks" name="distinguishingMarks" placeholder="Ej: Cicatriz en brazo izquierdo, tatuaje...">
+                    </div>
+
+                    <h2>Contacto</h2>
+                    
+                    <div class="form-group">
+                        <label for="contactName" data-required="true">Persona de contacto *</label>
+                        <input type="text" id="contactName" name="contactName" required data-required="true" placeholder="Nombre de quien reporta">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" data-required="true">Teléfono *</label>
+                            <input type="tel" id="phone" name="phone" required data-required="true" placeholder="Ej: +54 9 1234567890">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-required="true">Email *</label>
+                            <input type="email" id="email" name="email" required data-required="true" placeholder="Ej: contacto@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organismo responsable (opcional)</label>
+                        <input type="text" id="organization" name="organization" placeholder="Ej: Policía Local">
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">He leído y acepto los <a href="terminos.html">términos de servicio</a> y <a href="privacidad.html">política de privacidad</a></label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">✓ Registrar Desaparecido</button>
+                        <button type="reset" class="btn btn-outline">✕ Limpiar Formulario</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>EncontrAR</h4>
+                <p>Plataforma humanitaria de código abierto</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EncontrAR. Bajo licencia MIT.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/registro.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Busca personas desaparecidas en EncontrAR">
+    <title>Buscar Personas Desaparecidas | EncontrAR</title>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="../" aria-label="EncontrAR - Ir a inicio">
+                    <span class="logo-icon">🔍</span>
+                    <span class="logo-text">EncontrAR</span>
+                </a>
+            </div>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="../">Inicio</a></li>
+                <li><a href="buscar.html" class="active">Buscar</a></li>
+                <li><a href="registro.html">Registrar</a></li>
+                <li><a href="reportar.html">Reportar</a></li>
+                <li><a href="../pages/login.html" id="loginLink">Ingresar</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Buscar Personas</h1>
+                <p class="hero-subtitle">Ayuda a localizar a quienes están desaparecidos</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="search-filters" aria-label="Filtros de búsqueda">
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label for="searchName">Nombre o Apellido</label>
+                        <input type="text" id="searchName" placeholder="Ej: Juan García">
+                    </div>
+                    <div class="form-group">
+                        <label for="searchCity">Ciudad</label>
+                        <input type="text" id="searchCity" placeholder="Ej: Buenos Aires">
+                    </div>
+                    <div class="form-group">
+                        <label for="searchCountry">País</label>
+                        <select id="searchCountry">
+                            <option value="">Todos los países</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CL">Chile</option>
+                            <option value="CO">Colombia</option>
+                            <option value="MX">México</option>
+                            <option value="PE">Perú</option>
+                            <option value="ES">España</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="searchState">Estado</label>
+                        <select id="searchState">
+                            <option value="">Todos los estados</option>
+                            <option value="desaparecido">Desaparecido</option>
+                            <option value="en_busqueda">En búsqueda</option>
+                            <option value="posible_avistamiento">Posible avistamiento</option>
+                            <option value="localizado">Localizado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filters-actions">
+                    <button class="btn btn-primary" id="btnSearch">🔍 Buscar</button>
+                    <button class="btn btn-outline" id="btnReset">↺ Limpiar</button>
+                </div>
+            </section>
+
+            <section class="search-results" aria-label="Resultados de búsqueda">
+                <div class="results-header">
+                    <h2>Resultados</h2>
+                    <p id="resultsCount">Cargando...</p>
+                </div>
+                <div class="cases-grid" id="searchResults">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+                <div id="paginationControls" class="pagination" style="display:none;">
+                    <button class="btn btn-outline" id="btnPrevious">← Anterior</button>
+                    <span id="pageInfo"></span>
+                    <button class="btn btn-outline" id="btnNext">Siguiente →</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>EncontrAR</h4>
+                <p>Plataforma humanitaria de código abierto</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nosotros</a></li>
+                    <li><a href="privacidad.html">Privacidad</a></li>
+                    <li><a href="terminos.html">Términos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EncontrAR. Bajo licencia MIT.</p>
+        </div>
+    </footer>
+
+    <div id="infoModal" class="modal" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/buscar.js"></script>
+</body>
+</html>

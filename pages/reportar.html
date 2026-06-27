@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reporta información sobre una persona desaparecida en EncontrAR">
+    <title>Reportar Información | EncontrAR</title>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="../" aria-label="EncontrAR - Ir a inicio">
+                    <span class="logo-icon">🔍</span>
+                    <span class="logo-text">EncontrAR</span>
+                </a>
+            </div>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="../">Inicio</a></li>
+                <li><a href="buscar.html">Buscar</a></li>
+                <li><a href="reportar.html" class="active">Reportar</a></li>
+                <li><a href="../pages/login.html" id="loginLink">Ingresar</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Reportar Información</h1>
+                <p class="hero-subtitle">Tu información podría ayudar a localizar a alguien</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="report-form">
+                <form id="reportForm">
+                    <div class="form-group">
+                        <label for="reporterName">Tu nombre (opcional)</label>
+                        <input type="text" id="reporterName" name="reporterName" placeholder="Tu nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reportMessage" data-required="true">Mensaje *</label>
+                        <textarea id="reportMessage" name="reportMessage" required data-required="true" placeholder="Comparte la información que tengas..." maxlength="1000"></textarea>
+                        <small id="messageCount">0/1000</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reportLocation">Ubicación (opcional)</label>
+                        <div class="location-input">
+                            <input type="text" id="reportLocation" name="reportLocation" placeholder="Ubicación del avistamiento">
+                            <button type="button" class="btn btn-outline" id="btnGetLocation" title="Obtener ubicación actual">📍</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reportPhoto">Fotografía (opcional)</label>
+                        <input type="file" id="reportPhoto" name="reportPhoto" accept="image/*">
+                        <small>Formato: JPG, PNG, WebP. Máximo 5MB</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">✓ Enviar Reporte</button>
+                        <button type="reset" class="btn btn-outline">✕ Limpiar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>EncontrAR</h4>
+                <p>Plataforma humanitaria de código abierto</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EncontrAR. Bajo licencia MIT.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/reportar.js"></script>
+</body>
+</html>
