@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://huapirodriguez.github.io/EncontrAR/sitemap.xml
+
+Crawl-delay: 1
