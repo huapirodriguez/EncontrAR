@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EncontrAR - Plataforma humanitaria para localizar personas desaparecidas">
+    <meta name="theme-color" content="#0066CC">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EncontrAR">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="EncontrAR - Encuentra personas desaparecidas">
+    <meta property="og:description" content="Plataforma gratuita y de código abierto para localizar personas desaparecidas">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://huapirodriguez.github.io/EncontrAR/assets/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EncontrAR - Encuentra personas desaparecidas">
+    <meta name="twitter:description" content="Plataforma gratuita y de código abierto para localizar personas desaparecidas">
+    
+    <title>EncontrAR - Encuentra Personas Desaparecidas</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192x192.png">
+    <link rel="apple-touch-icon" href="assets/icon-192x192.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="/EncontrAR/" aria-label="EncontrAR - Ir a inicio">
+                    <span class="logo-icon">🔍</span>
+                    <span class="logo-text">EncontrAR</span>
+                </a>
+            </div>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="/EncontrAR/" class="active">Inicio</a></li>
+                <li><a href="/EncontrAR/pages/buscar.html">Buscar</a></li>
+                <li><a href="#" id="adminLink" style="display:none;">Administración</a></li>
+                <li><a href="#" id="profileLink" style="display:none;">Mi Perfil</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Cerrar Sesión</a></li>
+                <li><a href="/EncontrAR/pages/login.html" id="loginLink">Ingresar</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Sección principal">
+            <div class="hero-content">
+                <h1>EncontrAR</h1>
+                <p class="hero-subtitle">Plataforma humanitaria para localizar personas desaparecidas</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" id="btnBuscar" onclick="window.location.href='/EncontrAR/pages/buscar.html'" aria-label="Ir a búsqueda de personas">
+                        <span class="btn-icon">🔍</span> Buscar Persona
+                    </button>
+                    <button class="btn btn-secondary" id="btnRegistrar" onclick="window.location.href='/EncontrAR/pages/registro.html'" aria-label="Registrar persona desaparecida">
+                        <span class="btn-icon">➕</span> Registrar Desaparecido
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar -->
+        <section class="search-section" aria-label="Buscador rápido">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="quickSearch" 
+                    class="search-input" 
+                    placeholder="Buscar por nombre, ciudad..."
+                    aria-label="Campo de búsqueda rápida"
+                >
+                <button class="search-btn" aria-label="Ejecutar búsqueda">
+                    <span>🔍</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Info Sections -->
+        <section class="info-cards" aria-label="Información rápida">
+            <div class="info-card">
+                <div class="card-icon">ℹ️</div>
+                <h3>¿Cómo funciona?</h3>
+                <p>Registra casos de personas desaparecidas y busca información con la comunidad</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">🛡️</div>
+                <h3>Privacidad Protegida</h3>
+                <p>Tus datos personales están protegidos con encriptación de extremo a extremo</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">⚡</div>
+                <h3>Rápido y Accesible</h3>
+                <p>Funciona en cualquier dispositivo, incluso en conexiones lentas</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">💬</div>
+                <h3>Crowdsourcing</h3>
+                <p>La comunidad colabora compartiendo información y avistamientos</p>
+            </div>
+        </section>
+
+        <!-- Recent Cases -->
+        <section class="recent-cases" aria-label="Casos recientes">
+            <div class="section-header">
+                <h2>Casos Recientes</h2>
+                <a href="/EncontrAR/pages/buscar.html" class="link-more">Ver todos →</a>
+            </div>
+            <div class="cases-grid" id="recentCases">
+                <!-- Populated by JavaScript -->
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="statistics" aria-label="Estadísticas">
+            <h2>Estadísticas</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="statTotal">-</div>
+                    <div class="stat-label">Casos Registrados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statLocated">-</div>
+                    <div class="stat-label">Localizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statReports">-</div>
+                    <div class="stat-label">Reportes Enviados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statHelpers">-</div>
+                    <div class="stat-label">Personas Ayudando</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>¿Tienes información importante?</h2>
+                <p>Comparte lo que sepas y ayuda a localizar a personas desaparecidas</p>
+                <button class="btn btn-primary" onclick="window.location.href='/EncontrAR/pages/reportar.html'" aria-label="Reportar información">
+                    <span class="btn-icon">📍</span> Reportar Información
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>EncontrAR</h4>
+                <p>Plataforma humanitaria, gratuita y de código abierto</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="/EncontrAR/pages/sobre.html">Sobre Nosotros</a></li>
+                    <li><a href="/EncontrAR/pages/privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="/EncontrAR/pages/terminos.html">Términos de Uso</a></li>
+                    <li><a href="/EncontrAR/pages/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#" aria-label="Twitter">Twitter</a></li>
+                    <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EncontrAR. Bajo licencia MIT. Hecho con ❤️ para la humanidad.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para información de reportes -->
+    <div id="infoModal" class="modal" role="dialog" aria-hidden="true" aria-label="Información">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar ventana">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/EncontrAR/sw.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed:', err));
+        }
+    </script>
+</body>
+</html>
